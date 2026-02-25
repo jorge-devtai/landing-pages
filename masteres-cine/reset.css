@@ -1,0 +1,40 @@
+@layer reset {
+  * {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* interpolate-size: allow-keywords; */
+  }
+
+  :is(#main) {
+    margin-top: 0 !important;
+  }
+
+  :is(.modulo, .modulo > .wrapper.wrapper-full, .wrapper.wrapper-full, iframe) {
+    max-width: unset !important;
+  }
+
+  .layout[data-layout="sidebar"].mt-0,
+  mt-0,
+  .modulo-section .desplegable-content > .wrapper:last-of-type {
+    margin: 0;
+    padding: 0 !important;
+  }
+
+  .modulo-section {
+    background-color: #d12216 !important;
+  }
+
+  #sticky-bottom.active {
+    display: none !important;
+  }
+
+  :is(h1 + p),
+  :is(h2 + p),
+  :is(h3 + p),
+  :is(p + p) {
+    margin: 0;
+    padding: 0;
+  }
+}

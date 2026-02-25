@@ -1,43 +1,3 @@
-@layer reset {
-  * {
-    font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    /* interpolate-size: allow-keywords; */
-  }
-
-  :is(#main) {
-    margin-top: 0 !important;
-  }
-
-  :is(.modulo, .modulo > .wrapper.wrapper-full, .wrapper.wrapper-full, iframe) {
-    max-width: unset !important;
-  }
-
-  .layout[data-layout="sidebar"].mt-0,
-  mt-0,
-  .modulo-section .desplegable-content > .wrapper:last-of-type {
-    margin: 0;
-    padding: 0 !important;
-  }
-
-  .modulo-section {
-    background-color: #d12216 !important;
-  }
-
-  #sticky-bottom.active {
-    display: none !important;
-  }
-
-  :is(h1 + p),
-  :is(h2 + p),
-  :is(h3 + p),
-  :is(p + p) {
-    margin: 0;
-    padding: 0;
-  }
-}
 
 :root {
   /* Colores */
@@ -54,6 +14,8 @@
   --space-xl: 2rem;
   --space-2xl: 3rem;
   --space-3xl: 5rem;
+
+  --gutter-h: 1rem;
 
   /* Tipografía */
   --font-family: Arial, Helvetica, sans-serif;
@@ -95,22 +57,46 @@ img {
 }
 
 /* Base compartida */
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+
+  @media (min-width: 1024px) {
+    grid-template-columns: repeat(16, 1fr);
+  }
+  
+}
+
+.all-cols { 
+  grid-column: 1 / -1;
+}
+
+.cols-4 {
+    grid-column-end: span 4;
+}
+
+.cols-8 {
+    grid-column-end: span 8;
+}
 .container {
+  --gutter-h: 1rem;
   --_max-width: var(--content-width);
   --_padding-block: var(--space-xl);
-  --_padding-inline: var(--space-xl);
+  --_padding-inline: var(--gutter-h);
 
   max-inline-size: var(--_max-width);
   margin-inline: auto;
   padding-block: var(--_padding-block);
   padding-inline: var(--_padding-inline);
-}
 
-/* Variante: grid de 2 columnas */
-.container--grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-  gap: var(--space-xl);
+  @media (min-width: 768px) {
+     --_padding-inline: calc(var(--gutter-h) * 2);
+  }
+
+  @media (min-width: 1024px) {
+     --_padding-inline: calc(var(--gutter-h) * 4);
+  }
 }
 
 /* Variante: ancho completo (para cards) */
@@ -135,13 +121,18 @@ img {
 .container--content {
   --_max-width: var(--content-width);
   display: flex;
-  gap: var(--space-lg);
+  gap: var(--space-md);
+
+  @media (max-width: 600px) {
+    flex-direction: column;
+  }
 }
 
 .container--content .quick-item {
   display: flex;
   align-items: center;
   gap: var(--space-xs);
+  flex-direction: row;
 }
 
 /* ✅ Separar tema de estructura */
