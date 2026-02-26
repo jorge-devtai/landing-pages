@@ -11,3 +11,24 @@
     width: 100%;
     height: var(--header-height);
 }
+
+
+.show-value {
+    display: flex;
+    text-align: center;
+    padding-block: .5rem;
+    padding-inline: .3rem;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    transition: color .3s ease-out;
+    max-width: 100vw;
+    outline: .6px solid  var(--color-dark) ;
+    box-sizing: border-box;
+
+    > * {
+         font-size: .9rem !important;
+         line-height: 1.3;
+    }
+
+}

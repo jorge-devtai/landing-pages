@@ -1,10 +1,11 @@
-
 :root {
   /* Colores */
   --color-primary: #d12216;
   --color-dark: #000;
   --color-light: #fff;
   --color-border: #000;
+  --color-gray: #E8E2DC;
+  --color-pearl: #FBF4EE;
 
   /* Espaciado (escala consistente) */
   --space-xs: 0.5rem;
@@ -17,7 +18,8 @@
 
   --gutter-h: 1rem;
 
-/*   style="padding-block:clamp(2rem, 1.1429rem + 4.2857vw, 5rem)" */
+  --padding-block: padding-block:clamp(2rem, 1.1429rem + 4.2857vw, 5rem);
+ 
 
   /* Tipografía */
   --font-family: Arial, Helvetica, sans-serif;
@@ -60,7 +62,7 @@ img {
 
 /* Base compartida */
 
-.grid {
+.grid-l {
   display: grid;
   grid-template-columns: repeat(8, 1fr);
 
@@ -72,6 +74,13 @@ img {
 
 .all-cols { 
   grid-column: 1 / -1;
+}
+
+.cols-2 {
+    grid-column-end: span 2;
+    @media (max-width: 728px) {
+      grid-column-end: span 4;
+    }
 }
 
 .cols-4 {
@@ -97,7 +106,7 @@ img {
 .container {
   --gutter-h: 1rem;
   --_max-width: var(--content-width);
-  --_padding-block: var(--space-xl);
+  --_padding-block: var(--space-2xl);
   --_padding-inline: var(--gutter-h);
 
   max-inline-size: var(--_max-width);
