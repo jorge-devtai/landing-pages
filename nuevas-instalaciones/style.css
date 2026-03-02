@@ -23,7 +23,8 @@
     width: 100%;
     transition: color .3s ease-out;
     max-width: 100vw;
-    outline: .6px solid  var(--color-dark) ;
+    outline: 1.5px solid  var(--color-primary);
+    background-color: var(--color-pearl);
     box-sizing: border-box;
 
     > * {
